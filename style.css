@@ -1,0 +1,638 @@
+/*body and footer position*/
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/*center buttons*/
+.toCenterClickMe {
+
+    width: 100px;
+    height: 400px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+/*button*/
+.type--A {
+    --line_color: #5900B3;
+    --back_color: #CC66FF;
+}
+
+.button {
+    position: relative;
+    z-index: 0;
+    width: 240px;
+    height: 56px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--line_color);
+    letter-spacing: 2px;
+    transition: all .3s ease;
+}
+
+.button__text {
+    opacity: 1;
+    -webkit-transition: opacity 1000ms linear;
+    transition: opacity 1000ms linear;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--line_color);
+    transition: all .5s ease;
+}
+
+.button::before {
+    top: 0;
+    left: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.button::after {
+    top: 0;
+    right: 54px;
+    width: 8px;
+}
+
+.button__text::before {
+    bottom: 0;
+    right: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.button__text::after {
+    bottom: 0;
+    left: 54px;
+    width: 8px;
+}
+
+.button__line {
+    position: absolute;
+    top: 0;
+    width: 56px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.button__line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 300px;
+    border: solid 3px var(--line_color);
+}
+
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before {
+    left: 0;
+}
+
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before {
+    right: 0;
+}
+
+.button:hover {
+    letter-spacing: 6px;
+}
+
+.button:hover::before,
+.button:hover .button__text::before {
+    width: 8px;
+}
+
+.button:hover::after,
+.button:hover .button__text::after {
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.button__drow1,
+.button__drow2 {
+    position: absolute;
+    z-index: -1;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+}
+
+.button__drow1 {
+    top: -16px;
+    left: 40px;
+    width: 32px;
+    height: 0;
+    transform: rotate(30deg);
+}
+
+.button__drow2 {
+    top: 44px;
+    left: 77px;
+    width: 32px;
+    height: 0;
+    transform: rotate(-127deg);
+}
+
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after {
+    content: '';
+    position: absolute;
+}
+
+.button__drow1::before {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-60deg);
+}
+
+.button__drow1::after {
+    top: -10px;
+    left: 45px;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(69deg);
+}
+
+.button__drow2::before {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-146deg);
+}
+
+.button__drow2::after {
+    bottom: 26px;
+    left: -40px;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-262deg);
+}
+
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after {
+    background: var(--back_color);
+}
+
+.button:hover .button__drow1 {
+    animation: drow1 ease-in .06s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow1::before {
+    animation: drow2 linear .08s .06s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow1::after {
+    animation: drow3 linear .03s .14s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow2 {
+    animation: drow4 linear .06s .2s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow2::before {
+    animation: drow3 linear .03s .26s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow2::after {
+    animation: drow5 linear .06s .32s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes drow1 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 100px;
+    }
+}
+
+@keyframes drow2 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    11% {
+        opacity: 1;
+    }
+
+    100% {
+        width: 120px;
+    }
+}
+
+@keyframes drow3 {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 80px;
+    }
+}
+
+@keyframes drow4 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 120px;
+    }
+}
+
+@keyframes drow5 {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 124px;
+    }
+}
+
+.containerClickMe {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerYesNo {
+    opacity: 0;
+    width: 300px;
+    height: 100px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto
+}
+
+
+.containerPoem {
+    opacity: 1;
+    width: 400px;
+    height: 900px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.containerPoem2 {
+    opacity: 1;
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.containerCat {
+    opacity: 0;
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    margin: auto;
+}
+
+.containerHerz {
+    opacity: 0;
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+    position: absolute;
+    
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.button:not(:last-child) {
+    margin-bottom: 64px;
+}
+
+/*fade out button after press*/
+.fade-out {
+    animation: fade 3s;
+    -webkit-animation: fade 3s;
+    -moz-animation: fade 3s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@-moz-keyframes fade {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+/*fade-in animation*/
+.fade-in60 {
+    animation: fadeIn60 3s;
+    -webkit-animation: fadeIn60 3s;
+    -moz-animation: fadeIn60 3s;
+
+}
+
+@keyframes fadeIn60 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.6
+    }
+}
+
+@-moz-keyframes fadeIn60 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@-webkit-keyframes fadeIn60 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 3s;
+    -webkit-animation: fadeIn 3s;
+    -moz-animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*fade color from white to purple after button press*/
+body {
+    background-color: white;
+}
+
+.fade-background {
+    animation: fade-back 3s ease forwards;
+}
+
+@keyframes fade-back {
+    to {
+        background-color: #CC66FF;
+    }
+}
+
+/*no-button escape*/
+.btn {
+    position: absolute;
+    background: #E880FF;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #5900B3;
+    font-size: 28px;
+    color: #5900B3;
+    outline: 0;
+}
+
+.btn.yes {
+    transition: opacity 0.3s ease;
+    /* Add a transition effect for a smooth fade-in */
+    opacity: 0.6;
+    /* Set initial opacity value */
+}
+
+.btn.yes:hover {
+    opacity: 1;
+    /* Change opacity on hover */
+}
+
+.btn.no {
+    transition: opacity 0.3s ease;
+    /* Add a transition effect for a smooth fade-in */
+    opacity: 0.6;
+    /* Set initial opacity value */
+}
+
+.btn.no:hover {
+    opacity: 1;
+    /* Change opacity on hover */
+}
+
+.no {
+    left: 110px;
+}
+
+
+.poem li {
+    opacity: 0;
+    pointer-events: none;
+    font-family: Times New Roman;
+    font-style: italic;
+    padding-bottom: 0.1em;
+}
+
+.poem li:first-child::first-letter {
+    font-size: 26px;
+    font-style: italic;
+    padding-right: 3px;
+}
+
+.poem li:not(:first-child) {
+    margin-left: 26px;
+}
+
+.poem ul,
+.poem ol {
+    list-style-type: none;
+}
+
+.poem ul:last-child {
+    font-size: 28px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Optionally, you can make it bold */
+}
+
+.poem2 li {
+    opacity: 0;
+    pointer-events: none;
+    font-family: Times New Roman;
+    font-style: italic;
+    padding-bottom: 0.1em;
+    font-size: 26px;
+}
+
+.poem2 li:first-child::first-letter {
+    font-size: 36px;
+    font-style: italic;
+    padding-right: 3px;
+}
+
+.poem2 li:not(:first-child) {
+    margin-left: 26px;
+}
+
+.poem2 ul,
+.poem2 ol {
+    list-style-type: none;
+}
+
+.cat {
+    max-width: 500px;
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.herz {
+    max-width: 400px;
+    max-height: 400px;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
