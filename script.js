@@ -85,14 +85,17 @@ function fadeParagraphsOut(start, end) {
 }
 function fadeParagraphs2In(start, end) {
     const paragraphs = document.querySelectorAll('.poem2 li');
-    for (let i = start; i <= end; i++) {  // Change the loop condition to include 'end'
+    for (let i = start; i <= end; i++) {
         const currentParagraph = paragraphs[i];
         currentParagraph.style.opacity = '0';
         currentParagraph.style.animation = 'fadeIn 3s forwards';
+        if (i = end) {
+            //herz image
+            document.getElementById('containerHerz').style.opacity = '0';
+            document.getElementById('containerHerz').style.animation = 'fadeIn 3s forwards';
+        }
     }
-    //herz image
-    //document.getElementById('containerHerz').style.opacity = '0';
-    //document.getElementById('containerHerz').style.animation = 'fadeIn 3s forwards';
+
 }
 // no-button escape
 function onMouseOver() {
@@ -120,8 +123,8 @@ function onYesClick() {
         document.getElementById('toCenterYesNo').style.opacity = "0";
         document.getElementById('containerCat').style.opacity = "0";
         document.getElementById('cat').style.opacity = "0"
-       // document.getElementById('containerHerz').style.opacity = "0";
-       // document.getElementById('herz').style.opacity = "0"
+        // document.getElementById('containerHerz').style.opacity = "0";
+        // document.getElementById('herz').style.opacity = "0"
     }, 3000);
     setTimeout(function () {
         fadeParagraphs2In(0, 0);
